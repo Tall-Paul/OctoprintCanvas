@@ -72,7 +72,7 @@ class MQTT:
                 if "canvas-hub" in self.get_hub_yaml() and "clientId" in self.get_hub_yaml()["canvas-hub"]:
                     self.logger.debug(getLog("found client id"))
                     self.client_id = self.get_hub_yaml()["canvas-hub"]["clientId"]
-                self._mqtt = mqtt.Client(client_id=self.client_id, clean_session=self.clean_session)
+                self._mqtt = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1,client_id=self.client_id, clean_session=self.clean_session)
                 self._mqtt.tls_set_context(context=self._ssl_alpn())
                 self._mqtt.will_set(self.health_topic, self._get_alive_message(False), qos=0, retain=self.retain)
                 self._mqtt.on_connect = self._on_mqtt_connect
