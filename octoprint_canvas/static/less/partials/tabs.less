@@ -1,0 +1,104 @@
+.octoprint-container .tab-content {
+  border-left: 1px solid @color-3;
+  border-right: 1px solid @color-3;
+  border-bottom: 1px solid @color-3;
+  box-shadow: @shadow 0px 0.1em 0.4em 0.1em;
+  background-color: @color-1;
+}
+
+.nav-tabs {
+  border: none;
+  border-bottom: 1px solid @color-3;
+
+  li a {
+    color: #484747;
+  }
+
+  > li:hover > a {
+      color: @color-6;
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+  > .active {
+    > a {
+      font-weight: 500;
+    }
+
+    > a, a:hover {
+      color: @color-6;
+      background: @color-1;
+      border: 1px solid @color-3;
+      border-bottom-color: transparent;
+    }
+  }
+
+  .pull-right {
+    .dropdown-toggle {
+      margin-right: 0;
+      border: 1px solid transparent;
+      border-bottom-color: @color-3;
+      color: @color-2;
+
+      i {
+        color: @color-2;
+      }
+
+      .caret {
+        border-top-color: @color-2;
+        border-bottom-color: @color-2;
+      }
+
+      &:hover {
+        border: 1px solid @color-3;
+        background-color: transparent;
+      }
+    }
+
+    &.open {
+      .dropdown-toggle {
+        border: 1px solid @color-3;
+        border-bottom-color: transparent;
+        background-color: @color-1;
+
+        .caret {
+          border-top-color: @color-2;
+          border-bottom-color: @color-2;
+        }
+
+        &:hover {
+          background-color: @color-1;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+
+    &.active {
+      .dropdown-toggle {
+        border: 1px solid @color-3;
+        border-bottom-color: transparent;
+        background-color: @color-1;
+
+        i {
+          color: @color-6;
+        }
+
+        .caret {
+          border-top-color: @color-6;
+          border-bottom-color: @color-6;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      > li:hover > a,
+      .active > a,
+      .active > a:hover {
+        background-color: @color-1;
+        background-image: none;
+        color: @color-6;
+        border: none;
+      }
+    }
+  }
+}

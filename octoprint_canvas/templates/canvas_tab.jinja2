@@ -1,0 +1,63 @@
+<div class="row canvas-plugin">
+    <div class="distance">
+        <div class="row">
+            <h1>Canvas</h1>
+            <p class="connection-status-line">
+                <span>Connection Status: </span>
+                <span data-bind="visible: iotConnected() && userLinked()">
+                  <span
+                      id="connection-state-msg-canvas" class="text-muted"
+                      data-bind="text: 'Connected to Canvas and account linked',
+                      style: { color: '#17a078' }">
+                  </span>
+                </span>
+                <span data-bind="visible: !iotConnected()">
+                  <span
+                          id="connection-state-msg-canvas" class="text-muted"
+                          data-bind="text: 'Not Connected to Canvas',
+                      style: { color: '#fe4141' }">
+                  </span>
+                </span>
+                <span data-bind="visible: iotConnected() && !userLinked()">
+                  <span
+                          id="connection-state-msg-canvas" class="text-muted"
+                          data-bind="text: 'Connected to Canvas and account not linked',
+                      style: { color: '#dfd837' }">
+                  </span>
+                </span>
+            </p>
+            <div data-bind="visible: !iotConnected()">
+                <p class="connection-status-line">
+                    There seems to be an issue connecting to Canvas.
+                </p>
+                <p class="connection-status-line">
+                    The plugin will automatically try to re-connect until the connection is re-established.
+                </p>
+                <p class="connection-status-line">
+                    In the meanwhile, please download your Canvas files manually and upload them to the Hub.
+                </p>
+            </div>
+        </div>
+        <div class="row form-row" data-bind="visible: users() && users().length == 0">
+            <h4>Link an Account</h4>
+            <form class="add-user" data-bind="submit: addUser">
+                <button class="btn btn-primary connect-canvas-button">Get activation code</button>
+            </form>
+            <h5>
+                <a class="canvas-register" target="_blank" href="https://canvas3d.io/">
+                    Don't have a Canvas account?
+                </a>
+            </h5>
+        </div>
+        <div class="row" data-bind="visible: users() && users().length > 0">
+            <h4>Linked Account</h4>
+            <ul class="linked-accounts" data-bind="foreach: users">
+                <li class="linked-canvas-user">
+                    <i class="material-icons md-18">person</i>
+                    <span class="username" data-bind="text: username"></span>
+                    <i class="material-icons md-18" title="Unlink account" data-bind="click: $root.showUnlinkModal" style="cursor: pointer; margin-left: 10px">delete</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

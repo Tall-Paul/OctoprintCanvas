@@ -1,0 +1,7 @@
+AWSIoTPythonSDK
+OctoPrint
+paho-mqtt
+pyjwt
+python-dotenv
+pyudev
+ruamel.yaml<0.16.0
